@@ -7,6 +7,7 @@ import androidx.paging.PagingData
 import com.example.pokeappforvk.data.network.PokemonApi
 import com.example.pokeappforvk.data.network.PokemonPagingSource
 import com.example.pokeappforvk.domain.PokemonRepository
+import com.example.pokeappforvk.features.pokemondetails.domain.models.PokemonDetails
 import com.example.pokeappforvk.features.pokemonlist.domain.models.PokemonListResult
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -22,9 +23,10 @@ class PokemonRepositoryImpl @Inject constructor(
         ).flow
     }
 
-//    override fun getPokemonDetails(): PokemonData {
-//        TODO("Not yet implemented")
-//    }
+    override suspend fun getPokemonDetails(name: String): PokemonDetails {
+        return api.getPokemonDetailsByName(name)
+    }
+
 
     companion object{
         const val PAGE_SIZE = 20

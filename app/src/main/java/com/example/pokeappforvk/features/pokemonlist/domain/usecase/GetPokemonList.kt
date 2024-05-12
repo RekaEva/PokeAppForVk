@@ -10,12 +10,8 @@ class GetPokemonList @Inject constructor(
     private val repository: PokemonRepository
 )
 {
-
     fun getPokemonList() : Flow<PagingData<PokemonListResult>> {
         return repository.getPokemonList()
     }
 
-//    suspend fun getPokemonList() : Pokemons {
-//        return repository.getPokemonList()
-//    }
 }
