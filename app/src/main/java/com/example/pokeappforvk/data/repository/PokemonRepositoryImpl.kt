@@ -1,6 +1,5 @@
 package com.example.pokeappforvk.data.repository
 
-import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -27,8 +26,7 @@ class PokemonRepositoryImpl @Inject constructor(
         return api.getPokemonDetailsByName(name)
     }
 
-
-    companion object{
+    companion object {
         const val PAGE_SIZE = 20
     }
 }

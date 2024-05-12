@@ -1,26 +1,25 @@
-package com.example.pokeappforvk
+package com.example.pokeappforvk.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.pokeappforvk.ScreensName.Companion.POKEMONS_DETAILS_SCREEN
-import com.example.pokeappforvk.ScreensName.Companion.POKEMONS_LIST_SCREEN
 import com.example.pokeappforvk.di.DaggerApplicationComponent
 import com.example.pokeappforvk.features.pokemondetails.presentation.screen.PokemonDetailsScreen
 import com.example.pokeappforvk.features.pokemondetails.presentation.viewmodel.PokemonDetailsViewModel
 import com.example.pokeappforvk.features.pokemonlist.presentation.screen.PokemonListScreen
-//import com.example.pokeappforvk.features.pokemonlist.presentation.screen.PokemonListScreen
 import com.example.pokeappforvk.features.pokemonlist.presentation.viewmodel.PokemonsListViewModel
+import com.example.pokeappforvk.presentation.ScreensName.Companion.POKEMONS_DETAILS_SCREEN
+import com.example.pokeappforvk.presentation.ScreensName.Companion.POKEMONS_LIST_SCREEN
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
     @Inject
     lateinit var pokemonsListViewModel: PokemonsListViewModel
+
     @Inject
     lateinit var pokemonDetailsViewModel: PokemonDetailsViewModel
 
@@ -37,16 +36,16 @@ class MainActivity : ComponentActivity() {
                 startDestination = POKEMONS_LIST_SCREEN
             ) {
                 composable(POKEMONS_LIST_SCREEN) {
-                    PokemonListScreen(pokemonsListViewModel = pokemonsListViewModel){
+                    PokemonListScreen(pokemonsListViewModel = pokemonsListViewModel) {
                         navController.navigate("$POKEMONS_DETAILS_SCREEN/$it")
                     }
                 }
-                composable("$POKEMONS_DETAILS_SCREEN/{name}"){name ->
-                    Log.d("Qwer", "composable before$name}")
+                composable("$POKEMONS_DETAILS_SCREEN/{name}") { name ->
                     val pokemonName = name.arguments?.getString("name")
-                    Log.d("Qwer", "composable after $pokemonName}")
-                    PokemonDetailsScreen(pokemonDetailsViewModel = pokemonDetailsViewModel,
-                        name = pokemonName)
+                    PokemonDetailsScreen(
+                        pokemonDetailsViewModel = pokemonDetailsViewModel,
+                        name = pokemonName
+                    )
                 }
             }
         }
@@ -59,8 +58,3 @@ class ScreensName {
         const val POKEMONS_DETAILS_SCREEN = "pokemonsDetailsScreen"
     }
 }
-
-
-
-// Ошибка: Спосок при отключение и подключении интернета не продолжает подгружаться - fix
-//

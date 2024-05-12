@@ -1,4 +1,4 @@
-package com.example.pokeappforvk.ui.theme
+package com.example.pokeappforvk.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.example.pokeappforvk.ui.theme
+package com.example.pokeappforvk.presentation.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

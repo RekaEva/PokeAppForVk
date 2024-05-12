@@ -1,13 +1,12 @@
 package com.example.pokeappforvk.data.network
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.pokeappforvk.features.pokemonlist.domain.models.PokemonListResult
 
-class PokemonPagingSource (
+class PokemonPagingSource(
     private val loader: PokemonApi
-) : PagingSource<Int, PokemonListResult>(){
+) : PagingSource<Int, PokemonListResult>() {
 
     override fun getRefreshKey(state: PagingState<Int, PokemonListResult>): Int? {
         return state.anchorPosition
@@ -25,7 +24,7 @@ class PokemonPagingSource (
                 prevKey = null,
                 nextKey = nextKey
             )
-        } catch (e : Exception){
+        } catch (e: Exception) {
             LoadResult.Error(e)
         }
     }

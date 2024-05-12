@@ -6,6 +6,6 @@ data class PokemonListX(
     val count: Int,
     val next: String,
     val previous: Any,
-    @SerializedName("results")val pokelist: List<PokemonListResult>
+    @SerializedName("results") val pokelist: List<PokemonListResult>
 )
 

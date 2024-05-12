@@ -5,7 +5,7 @@ import com.example.pokeappforvk.features.pokemondetails.domain.models.PokemonDet
 import javax.inject.Inject
 
 class GetPokemonDetails @Inject constructor(private val repository: PokemonRepository) {
-    suspend fun getPokemonDetails(name : String) : PokemonDetails {
+    suspend fun getPokemonDetails(name: String): PokemonDetails {
         return repository.getPokemonDetails(name)
     }
 }

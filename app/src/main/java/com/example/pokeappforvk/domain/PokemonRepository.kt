@@ -6,6 +6,6 @@ import com.example.pokeappforvk.features.pokemonlist.domain.models.PokemonListRe
 import kotlinx.coroutines.flow.Flow
 
 interface PokemonRepository {
-    fun getPokemonList() : Flow<PagingData<PokemonListResult>>
-    suspend fun getPokemonDetails(name: String) : PokemonDetails
+    fun getPokemonList(): Flow<PagingData<PokemonListResult>>
+    suspend fun getPokemonDetails(name: String): PokemonDetails
 }
